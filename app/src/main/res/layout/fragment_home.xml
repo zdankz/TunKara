@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragment"
+    android:id="@+id/frag_home">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:context=".MainActivity">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="350dp"
+            android:layout_height="260dp"
+            android:layout_below="@id/btnSearch"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/rvAmUser"/>
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="300dp"
+            android:layout_height="38dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/nenbotron"
+            android:layout_marginTop="200dp"
+            android:hint="Nhập bài hát..."
+            android:text=""
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:textSize="15sp"
+            android:textColorHint="#ffffff"
+            android:textStyle="italic"
+            />
+        <Button
+            android:layout_width="300dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="38dp"
+            android:layout_below="@+id/search"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bobutton"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:text="Tìm kiếm"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:id="@+id/btnSearch"
+            />
+
+    </RelativeLayout>
+
+</FrameLayout>

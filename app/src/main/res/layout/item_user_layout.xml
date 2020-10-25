@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/rlRoot"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginTop="15dp"
+    android:background="@drawable/item_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/ivUserAvatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/avata" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ivUserAvatar"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/S_ID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textStyle="normal"
+            android:textColor="#FFF"
+
+            android:textSize="5sp" />
+        <TextView
+            android:id="@+id/S_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lac Troi"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:paddingTop="0dp"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/S_URL"
+            android:layout_width="match_parent"
+            android:paddingTop="6dp"
+            android:layout_height="wrap_content"
+            android:text="Nghiêm Thành Ngọc"
+            android:textColor="#FFF"
+            android:textSize="10sp"
+            />
+    </LinearLayout>
+</RelativeLayout>
