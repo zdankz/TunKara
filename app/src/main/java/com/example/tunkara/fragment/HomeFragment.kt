@@ -30,6 +30,7 @@ import java.net.URL
  */
 class HomeFragment : Fragment() {
 
+
     val users = ArrayList<User>()
     lateinit var adapter: UserAdapter
     val loi : String = "Nhap bai hat"

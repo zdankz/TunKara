@@ -2,13 +2,13 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" android:enterFadeDuration="300" android:exitFadeDuration="300">
     <item android:state_pressed="false">
         <shape>
-            <gradient android:angle="90" android:endColor="#F7C892" android:startColor="#F7D5CD" />
-            <corners android:radius="0dp" />
+            <gradient android:angle="90" android:endColor="#D6D4D0" android:startColor="#DBD5D3" />
+            <corners android:radius="180dp" />
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape>
-            <gradient android:angle="0" android:endColor="#0083B0" android:startColor="#00B4DB" />
+            <gradient android:angle="0" android:endColor="#667074" android:startColor="#944F16" />
             <corners android:radius="8dp" />
         </shape>
     </item>

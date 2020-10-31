@@ -32,12 +32,11 @@ class MainActivity : AppCompatActivity() {
     val loi : String = "Nhap bai hat"
     val homeFrag = HomeFragment()
     val searchFrag = SearchFragment()
-    //val searchFrag = Loadmediafiles()
     val profileFrag = ProfileFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val intent :Intent = Intent(this,Loadmediafiles::class.java)
+
 
 //        btnSearch.setOnClickListener {
 //            var key_serch: String = search.text.toString()

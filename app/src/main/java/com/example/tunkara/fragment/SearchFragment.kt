@@ -2,13 +2,15 @@ package com.example.tunkara.fragment
 
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.tunkara.Load_list_media
 import com.example.tunkara.R
-import com.example.tunkara.entity.Songinfo
+import kotlinx.android.synthetic.main.fragment_search.*
 
 
 /**
@@ -27,6 +29,11 @@ class SearchFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        click.setOnClickListener{
+            var intent : Intent = Intent(frag_file.context,Load_list_media::class.java)
+            startActivity(intent)
+        }
 
 //
     }

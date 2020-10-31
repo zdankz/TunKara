@@ -6,7 +6,17 @@
     tools:context=".fragment.SearchFragment"   
     android:id="@+id/frag_file">
 
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <Button
+        android:layout_width="100dp"
+        android:id="@+id/click"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:text="gotofile"/>
+</RelativeLayout>
 
 
 

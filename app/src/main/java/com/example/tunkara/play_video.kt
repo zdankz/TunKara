@@ -1,8 +1,15 @@
 package com.example.tunkara
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.media.MediaRecorder
+import android.media.session.PlaybackState
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.view.View
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.OrientationHelper
 import com.example.tunkara.entity.User
@@ -15,20 +22,64 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class play_video : AppCompatActivity() {
 
 
-
-    val users = ArrayList<User>()
-    lateinit var adapter: UserAdapter
+    lateinit var mr : MediaRecorder
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_video)
+
         val intent = intent
+
         val url:String? = intent.getStringExtra("URL")
         val title:String? = intent.getStringExtra("name")
+        val tentep:String = title.toString()
         val youtube : YouTubePlayerView = findViewById((R.id.youtube_player_view))
         lifecycle.addObserver(youtube)
 
-        initAdapter()
-        initRecyclerView()
+        var path = Environment.getExternalStorageDirectory().toString()+"/Sounds/$tentep.mp3"
+
+        mr = MediaRecorder()
+        btn_record.isEnabled = false
+        btn_stoprecord.isEnabled = false
+        btn_replayrecord.isEnabled = false
+        //==========================================================================================
+        if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.RECORD_AUDIO)!=
+            PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(
+                this, arrayOf(
+                    android.Manifest.permission.RECORD_AUDIO,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ), 111)
+        btn_record.isEnabled = true
+
+        //=================================batdaughiam======================================
+        btn_record.setOnClickListener {
+            mr.setAudioSource(MediaRecorder.AudioSource.MIC)
+            mr.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
+            mr.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB)
+            mr.setOutputFile(path)
+            mr.prepare()
+            mr.start()
+
+            btn_stoprecord.isEnabled = true
+            btn_record.isEnabled = false
+        }
+
+        //======================================dung ghi am ================================
+        btn_stoprecord.setOnClickListener {
+            mr.stop()
+            var duongdan = path.toString()
+            btn_record.isEnabled = true
+            btn_replayrecord.isEnabled = true
+            btn_stoprecord.isEnabled = false
+        }
+        btn_replayrecord.setOnClickListener {
+            //btn_replayrecord.text = path.toString()
+            var truyenpath : Intent = Intent(this,Listen_REC::class.java)
+            truyenpath.putExtra("linkbaihat",path.toString())
+            startActivity(truyenpath)
+        }
+
+
 
 
         youtube.addYouTubePlayerListener(object : AbstractYouTubePlayerListener(){
@@ -36,7 +87,7 @@ class play_video : AppCompatActivity() {
                 super.onReady(youTubePlayer)
                 val videourl = url.toString()
                 youTubePlayer.loadVideo(videourl,0f)
-                btnre_play.setOnClickListener{
+                btn_replay.setOnClickListener{
                     youTubePlayer.loadVideo(videourl,0f)
                 }
                 //youtube_player_view.enterFullScreen()
@@ -48,7 +99,11 @@ class play_video : AppCompatActivity() {
             }
         })
 
-
+    }
+    override fun onRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode ==111 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            btn_record.isEnabled = true
     }
     override fun onDestroy() {
         super.onDestroy()
@@ -57,17 +112,5 @@ class play_video : AppCompatActivity() {
     fun detroy(){
         youtube_player_view.release()
     }
-    @SuppressLint("WrongConstant")
-    private fun initRecyclerView() {
-        rvAmUser2.layoutManager = LinearLayoutManager(this,OrientationHelper.HORIZONTAL,true)
-        rvAmUser2.setHasFixedSize(true)
-        rvAmUser2.adapter = adapter
-    }
 
-    private fun initAdapter() {
-        adapter = UserAdapter(users)
-    }
-    fun clearListVideo(){
-        users.clear()
-    }
 }

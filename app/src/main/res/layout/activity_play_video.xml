@@ -5,68 +5,111 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/nenvideo"
-
     android:id="@+id/video">
-
-
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/youtube_player_view"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
-
         app:videoId=""
         app:autoPlay="true"
         app:showFullScreenButton="true"
-        />
+        >
+
+    </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-
         android:id="@+id/rvAmUser2"
         android:layout_marginHorizontal="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:background="#f000"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+
+        android:layout_height="30dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:id="@+id/btn_replay"
+            android:background="@drawable/ic_replay_black_24dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Aloo"
-            android:id="@+id/nhanurl"/>
+        android:background="@drawable/nenbotron"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_settings_voice_black_24dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_gravity=""
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-           >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/ic_replay_black_24dp"
-                android:id="@+id/btnre_play"
-                android:layout_gravity="center"
+            android:layout_marginBottom="5dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btn_record"
+                    android:text="PLAY"
+                    android:layout_height="40dp"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="STOP"
+                    android:id="@+id/btn_stoprecord"
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_toEndOf="@+id/btn_record"
 
-                />
+                    android:layout_height="40dp"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btn_replayrecord"
+                    android:layout_toEndOf="@+id/btn_stoprecord"
+                    android:text="REPLAY"
+                    android:layout_height="40dp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_settings_voice_black_24dp"
-                android:id="@+id/btn_void"/>
-        </LinearLayout>
+
 
 
     </LinearLayout>
+
 
 </LinearLayout>
